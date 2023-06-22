@@ -1,0 +1,72 @@
+
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+
+\ProvidesPackage{listing_schemat}
+
+\RequirePackage{tikz} 			% Pakiet do rysowania schematów blokowych
+\RequirePackage{textcomp}		% Pakiet pomocniczy do tikz
+\usetikzlibrary{shapes,arrows}  % Pakiet pomocniczy do tikz
+\RequirePackage{listings} 		% do prezentowania listingu kodu
+
+
+%------------------------------------------------------------
+% Konfiguracja listingów - zdefiniowaæ mo¿na tak¿e dodatkowe
+% style dla nowych jêzyków, wed³ug zapotrzebowania
+%------------------------------------------------------------
+
+% Definicje kolorów dla listingów
+\definecolor{WhitePG}{RGB}{250, 250, 250}
+\definecolor{BluePG}{RGB}{10, 55,100}
+\definecolor{RedPG}{RGB}{227,27,35}
+\definecolor{GreenPG}{RGB}{0,153,0}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    %basicstyle=\fontsize{11}{11}\selectfont\ttfamily
+}
+
+\lstset{style=mystyle}
+
+\lstset{
+  literate={ą}{{\k a}}1
+  		     {Ą}{{\k A}}1
+           {ż}{{\. z}}1
+           {Ż}{{\. Z}}1
+           {ź}{{\' z}}1
+           {Ź}{{\' Z}}1
+           {ć}{{\' c}}1
+           {Ć}{{\' C}}1
+           {ę}{{\k e}}1
+           {Ę}{{\k E}}1
+           {ó}{{\' o}}1
+           {Ó}{{\' O}}1
+           {ń}{{\' n}}1
+           {Ń}{{\' N}}1
+           {ś}{{\' s}}1
+           {Ś}{{\' S}}1
+           {ł}{{\l}}1
+           {Ł}{{\L}}1
+}
+
+\endinput

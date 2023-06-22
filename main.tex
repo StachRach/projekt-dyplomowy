@@ -1,0 +1,103 @@
+\documentclass[nostrict]{szablonPG}
+
+%-------------------- Dodatkowe pakiety ---------------------
+\usepackage{listing_schemat}
+\usepackage{fourier}
+\usepackage{polski}
+\usepackage{setspace}
+\usepackage{indentfirst} 
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{wrapfig}
+\usepackage{booktabs}
+\usepackage{bigstrut}
+\usepackage{siunitx}
+\usepackage{amsmath}
+%------------------------------------------------------------
+
+%------------- Numeracja wzorów, tabel i obrazów ------------
+\numberwithin{figure}{chapter}
+\numberwithin{table}{chapter}
+\numberwithin{equation}{chapter}
+%------------------------------------------------------------
+%			      Początek pracy dyplomowej  
+%------------------------------------------------------------
+
+\begin{document}
+
+%------------------------------------------------------------
+%  Dodanie strony tytułowej wygenerowanej z MojaPG oraz 
+%  						oświadczenia
+
+\includepdf{meta/strona_tytulowa.pdf}
+\includepdf{meta/oswiadczenie.pdf}
+
+%------------------------------------------------------------
+%  Dodanie streszczenia i abstract
+%  						
+
+\input{meta/streszczenie.tex}
+\input{meta/abstract.tex}
+
+%------------------------------------------------------------
+%	Utworzenie spisu treści pracy dyplomowej
+\tableofcontents
+
+%------------------------------------------------------------
+%	Dodanie wykazu ważniejszych skrótów i oznaczeń 
+\input{meta/shortcuts}
+
+%------------------------------------------------------------
+%	Dodanie rozdziałów pracy dyplomowej - główne ciało dokumentu 
+
+\input{chapters/chapter_1}
+\input{chapters/chapter_2}
+\input{chapters/chapter_3}
+\input{chapters/chapter_4}
+\input{chapters/chapter_5}
+
+% ---------------------- Bibliografia -----------------------
+\input{meta/bib}
+% -----------------------------------------------------------
+
+%------------------------------------------------------------
+%	Dodanie wykazu rysunków oraz tabeli
+
+\renewcommand{\baselinestretch}{1.0}\normalsize
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+
+\renewcommand{\baselinestretch}{1.0}\normalsize
+\addcontentsline{toc}{chapter}{Wykaz listingów}
+\listof{lstlisting}{Wykaz listingów}
+
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+\renewcommand{\baselinestretch}{1.3}\normalsize
+
+% ---------------------- DODATKI -----------------------
+\chapter*{Dodatki}
+\addcontentsline{toc}{chapter}{Dodatki}
+% Zaleznie od dodatku, zaleca sie dodawac dodatki jako
+% dokumenty PDF
+% \includepdf{dodatki/dodatek1.pdf}
+
+Poniżej znajdują sią kody źródłowe opracowanego rozwiązania, pełne projekty dostępne na:
+\begin{itemize}
+    \item Arduino: \url{https://github.com/StachRach/dyplom-arduino-final.git}
+    \item Aplikacja: \url{https://github.com/StachRach/dyplom-WPF.git}
+\end{itemize}
+
+\lstinputlisting[caption=Skrypt Arduino, language=c++, firstline=6]{listings/main.cpp}
+\lstinputlisting[caption=Klasa aplikacji, language=csh, firstline=6]{listings/MainWindow2.xaml.cs}
+\lstinputlisting[caption=Formularz XAML aplikacji, language=xml, firstline=6]{listings/MainWindow.xaml}
+
+% -----------------------------------------------------------
+\end{document}
+%------------------------------------------------------------
+			 	%	Koniec pracy dyplomowej  %
+%------------------------------------------------------------
